@@ -2,7 +2,7 @@
 <html>
 <head>
 
-<link rel="stylesheet" type="text/css" href="styles.css">
+<link rel="stylesheet" type="text/css" href="./css/styles.css">
 
 
 </head>
@@ -37,8 +37,38 @@
     <form class="post-form">
         <input type="text" placeholder="제목"><br><br>
         <textarea placeholder="내용작성하기"></textarea><br><br>
-        <button type="submit">작성완료</button>
+        <button type="submit" id="post-button">작성완료</button>
+        <button onclick = "hihibutton()">안녕 버튼이야~~~~</button>
+        <button onclick="joinbutton()">회원가입하기</button>
+        <p id="joinCheck">회원가입을 하는 중입니다.</p>
     </form>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            //1. HTML 버튼 ID 가져오기
+            const postButton = document.getElementById("post-button");
+            //버튼을 클릭할 때 실행될 함수를 정의
+            function buttonClick(){
+                alert("게시물의 내용을 작성해주세요.")
+            }
+            //버튼 클릭 시 실행될 함수 연결
+            postButton.addEventListener("click", buttonClick);
+        })
+    </script>
+        <script>
+            function hihibutton() {
+                alert("안녕 나는 버튼이라고해");
+            }
+            function joinbutton() {
+                var txt;
+                if(confirm("버튼클릭!")){
+                    txt = "클릭완료 ~";
+                } else {
+                    txt = "회원가입을 완료하지 못했습니다.";
+                    
+                }
+                document.getElementById("joinCheck").innerHTML = txt;
+            }
+        </script>
     </div>
 
 </body>

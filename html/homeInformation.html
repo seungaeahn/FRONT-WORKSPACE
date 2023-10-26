@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>승애의 블로그</title>
+        <meta charset="UTF-8">
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+            header {
+                background-color: rgb(255, 188, 188);
+                padding: 30px;
+                text-align: center;
+                font-size: 35px;
+                color: white;
+            }
+            nav {
+                float: left;
+                width: 30%;
+                height: 300px;
+                background: rgb(255, 171, 171);
+                padding: 20px;
+                font-size: 15px;
+            
+            }
+            nav ul {
+                list-style: none;
+                padding: 0%;
+            }
+            article {
+                float: left;
+                padding: 0%;
+                width: 70%;
+                background-color: rgb(250, 226, 223);
+                height: 300px;
+                text-align: center;
+
+            }
+            section::after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+            footer {
+                background-color: rgb(255, 158, 171);
+                padding: 10px;
+                text-align: center;
+                color: white;
+            }
+            @media (max-width:600px){
+                nav, article{
+                    width: 100px;
+                    height: auto;
+                }
+            }
+            button{
+                color: rgb(255, 255, 255);
+                background-color: rgb(245, 45, 112);
+            }
+        </style>
+    </head>
+    <body>
+        <h2>승애의 블로그</h2>
+        <p>안녕하세요. 여기는 승애의 블로그입니다.</p>
+        <header>
+            <img src="루피.jpg" alt="이미지2";">
+        </header>
+        <section>
+            <nav>
+                <ul>
+                    <li>일상글..끄적끄적</li><br>
+                    <li>먹방일기with맛집추천!</li><br>
+                    <li>여행기록</li><br>
+                    <li>방명록</li>
+                </ul>
+            </nav>
+        
+        <article>
+            <h1>블로그에 놀러오신 걸 환영합니다 ❤*.(๓´͈ ˘ `͈๓).*❤</h1>
+            <p>저는 취준생 백수이구요...<br>
+            누워있는게 최고라고 생각하는 infp입니당..</p>
+            <h2>방명록 작성</h2>
+            <input type="text" placeholder="제목"> <br><br>
+            <input type="내용" placeholder="내용"> <br><br>
+            <button type="submit" id="post-button">작성완료</button>
+        </article>
+        
+    </section>
+    <footer>
+        <p>인스타그램 | 티스토리 | 페이스북</p>
+    </footer>
+    
+    </body>
+    
+   
+
+</html>
