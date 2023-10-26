@@ -42,7 +42,8 @@
                 clear: both;
             }
             footer {
-                background-color: rgb(255, 158, 171);
+                background: linear-gradient( #ffdde1, #ee9ca7) ;/*시작할 색상 정하기*/
+                /*background-color: rgb(255, 158, 171);*/
                 padding: 10px;
                 text-align: center;
                 color: white;
@@ -57,20 +58,48 @@
                 color: rgb(255, 255, 255);
                 background-color: rgb(245, 45, 112);
             }
+            .main_image {
+                position: relative;
+            }
+            .main_image_text {
+                position: absolute;
+                top: 10%;
+                left: 20%;
+                transform: translate( -50%, -50% );
+                color: rgb(255, 255, 255);
+                font-family: 'ONE-Mobile-POP';
+                font-size: 30px;
+             
+            }
+            @font-face {
+            font-family: 'Orbit-Regular';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/Orbit-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            font-family: 'Orbit-Regular';
+        }
+
+            
         </style>
     </head>
     <body>
         <h2>승애의 블로그</h2>
         <p>안녕하세요. 여기는 승애의 블로그입니다.</p>
         <header>
-            <img src="루피.jpg" alt="이미지2";">
+            <div class="main_image">
+                <img src="루피.jpg" >
+                <h1 class="main_image_text" >승애의 블로그</h1>
+          
+          </div>
         </header>
         <section>
             <nav>
                 <ul>
                     <li>일상글..끄적끄적</li><br>
                     <li>먹방일기with맛집추천!</li><br>
-                    <li>여행기록</li><br>
+                    <li><a href= "travelblog.html">여행기록</a></li><br>
                     <li>방명록</li>
                 </ul>
             </nav>
@@ -78,16 +107,42 @@
         <article>
             <h1>블로그에 놀러오신 걸 환영합니다 ❤*.(๓´͈ ˘ `͈๓).*❤</h1>
             <p>저는 취준생 백수이구요...<br>
-            누워있는게 최고라고 생각하는 infp입니당..</p>
-            <h2>방명록 작성</h2>
-            <input type="text" placeholder="제목"> <br><br>
-            <input type="내용" placeholder="내용"> <br><br>
-            <button type="submit" id="post-button">작성완료</button>
+            누워있는게 최고라고 생각하는 infp입니당..</p><br>
+            <h1>댓글쓰기</h1>
+            <div class="comment">
+                <input id = "commentInput" placeholder="댓글작성">
+                <button onclick="addComment()">작성완료</button>
+                <div id="comments">
+                    <!--댓글이 표시될 장소-->
+                </div>
+            </div>
         </article>
+        
+        <script>
+            function addComment(){
+                const commentInput = document.getElementById("commentInput");
+                const commentText = commentInput.value;
+    
+                if(commentText.trim() === "") {
+                    alert("댓글을 작성해주세요.")
+                    return;
+                }
+    
+                const commentsBox = document.getElementById("comments");
+    
+                const commentDIV = document.createElement("div");
+                commentDIV.className = "comment";
+                commentDIV.textContent = commentText;
+    
+                commentsBox.appendChild(commentDIV);
+                commentInput.value="";
+            }
+        </script>
         
     </section>
     <footer>
-        <p>인스타그램 | 티스토리 | 페이스북</p>
+        <p><a href= "">인스타그램</a> |<a href= "https://seungaeahn.tistory.com/">티스토리</a>| <a href= "">페이스북</a></p>
+       
     </footer>
     
     </body>
