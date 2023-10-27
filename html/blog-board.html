@@ -49,7 +49,51 @@
                 <p>게시일 : ${date.toLocaleString()}</p>
 
                 `;
+                 //삭제 버튼 생성
+                 const deleteButton = document.createElement("button");
+                deleteButton.classList.add("delete-button");
+                deleteButton.innerHTML = "삭제하기";
+                deleteButton.addEventListener("click", () => {
+                    postArray.splice(postArray.indexOf(post), 1);
+                    posts.removeChild(postDiv);
+                })
+                //댓글 폼 작성
+                const commentForm = document.createElement("form");
+                commentForm.innerHTML =`
+                    <input type="text" name="comment" placeholder="댓글추가하기">
+                    <button type="submit">게시</button>
+                `;
+
+                    
+                commentForm.addEventListener("submit", function(event) {
+                    event.preventDefault();
+                    const commentText = commentForm.comment.value;
+                    const comment = {
+                        text : commentText,
+                        date : new Date(),
+                    };
+                    post.comments.push(comment);
+                    const commentDiv = document.createElement("div");
+                    commentDiv.classList.add("comment");
+                    commentDiv.innerHTML = `
+                    <p>${commentText}</p>
+                    <p>게시일 : ${comment.date.toLocaleString()}</p>
+                    `;
+                    //댓글 입력 초기화
+                    commentForm.comment.value = "";
+                    postDiv.appendChild(commentDiv);
+                })
+            
+                postDiv.appendChild(deleteButton);
+                postDiv.appendChild(commentForm);
+
+                //게시물 목록 추가
                 posts.appendChild(postDiv);
+                
+                //게시글 입력 초기화
+                postForm.title.value ="";
+                postForm.content.value ="";
+                
             });
         </script>
     </body>

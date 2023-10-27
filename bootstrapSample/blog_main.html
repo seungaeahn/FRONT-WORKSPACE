@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>블로그 메인</title>
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <h1>블로그메인</h1>
+        <button id="createPostButton">게시글 작성하기</button>
+        <ul id="blogPostList">
+
+            <!-- 리스트 아이템 추가되는 자리-->
+        </ul>
+
+        <script>
+            const blogPostList = document.getElementById("blogPostList");
+                        //localStorage.getItem("blogPosts") : 해당 키에 저장된 데이터를
+                        //문자열로 변환 후 
+                        // JSON.parse 데이터를 javaScript 객체로 저장
+                        //만약 저장된 데이터가 없다면 [] 빈 배열을 기본값으로 사용하겠다.
+            const savedPosts = JSON.parse(localStorage.getItem("blogPosts")) || [];
+
+            savedPosts.forEach(post => {
+                const listItem = document.createElement("li");
+                listItem.textContent = post.content;
+                blogPostList.appendChild(listItem);
+            });
+
+            //게시글 작성 페이지로 이동하는 클릭 버튼 
+            document.getElementById("createPostButton").addEventListener("click", function(){
+                window.location.href = "blog_post.html";
+            });
+        </script>
+    </body>
+</html>
