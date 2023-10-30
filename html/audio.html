@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>뮤직 카운트</title>
+        <style>
+            audio {
+                display: block;
+                margin: 0 auto;
+                max-width: 80%;
+                border: 2px solid #f8d0d0;
+                border-radius: 8px;
+                background-color: #f8d0d0;
+                box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            }
+            audio::-webkit-media-controls-panel {
+                background-color: #f8d0d0;
+                border-radius: 8px;
+            }
+            audio::-webkit-media-controls-play-button {
+                background-color: rgb(255, 255, 255);
+                border: 2px solid #f8080f;
+                border-radius: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>노래재생</h1>
+        <audio id="myAudio" controls autoplay>
+            <source src="NewJeans - Super Shy.mp3" type="audio/mpeg">
+        </audio>
+
+        <script>
+            //자동 재생을 위한 코드
+            const audio = document.getElementById('myAudio');
+            audio.play();
+        </script>
+
+    </body>
+</html>

@@ -83,6 +83,19 @@
             font-family: 'Orbit-Regular';
             
         }
+        audio {
+                display: block;
+                margin: 0 auto;
+                max-width: 100%;
+                border: 2px solid #f8d0df;
+                border-radius: 8px;
+                background-color: #f8d0d0;
+                box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            }
+            audio::-webkit-media-controls-panel {
+                background-color: #f8d0d0;
+                border-radius: 8px;
+            }
      
 
             
@@ -110,6 +123,9 @@
                     <br><br>
                     <center><button type="submit" id="loginButton" disabled>로그인</button></center><br><br>
                 </form>   
+                <audio id="myAudio" controls autoplay>
+                    <source src="NewJeans - Super Shy.mp3" type="audio/mpeg">
+                </audio><br><br>
                 <ul>
                     <li>일상글..끄적끄적</li><br>
                     <li>먹방일기with맛집추천!</li><br>
