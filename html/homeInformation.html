@@ -17,7 +17,7 @@
             nav {
                 float: left;
                 width: 30%;
-                height: 500px;
+                height: 1000px;
                 background: rgb(255, 171, 171);
                 padding: 20px;
                 font-size: 15px;
@@ -34,7 +34,7 @@
                 padding: 0%;
                 width: 70%;
                 background-color: rgb(250, 226, 223);
-                height: 500px;
+                height: 1000px;
                 text-align: center;
 
             }
@@ -96,7 +96,23 @@
                 background-color: #f8d0d0;
                 border-radius: 8px;
             }
-     
+        
+            .img-container {
+                /*이미지 가로로 나열하기*/
+                display: flex; 
+                /*가로로 공간이 부족할 경우 다음줄로 넘김*/
+                flex-wrap: wrap; 
+                /*가로방향으로 중앙 정렬 이미지들이 수평 가운데 정렬*/
+                justify-content: center;
+            }
+            .image {
+                width: 200px;
+                height: 200px;
+                margin: 10px;
+            }
+            .blogPostList {
+                display: none;
+            }
 
             
         </style>
@@ -138,6 +154,77 @@
             <h1>블로그에 놀러오신 걸 환영합니다 ❤*.(๓´͈ ˘ `͈๓).*❤</h1>
             <p>저는 취준생 백수이구요...<br>
             누워있는게 최고라고 생각하는 infp입니당..</p><br>
+            <div id="pagination">
+                <button id="prevPage">이전</button>
+                <div class="img-container">
+                    <!--이미지를 추가하는 공간-->
+                </div>
+                <button id="nextPage">다음</button>
+            </div>
+            <script>
+                const images = [
+                    './img/뽀로로.jpg',
+                    './img/포비.jpg',
+                    './img/크롱.jpg',
+                    './img/해리.jpg',
+                    './img/에디.jpg',
+                ];
+            const imagesPerpage = 2; //한페이지에 표시될 이미지 수 
+            let currentPage = 0; //현재 페이지를 나타내는 변수 
+                                 //초기값은 0으로 설정하여 첫 번째 페이지를 표시함
+            const imageContainer = document.querySelector('.img-container');
+            const prevButton = document.getElementById('prevPage'); //이전 버튼
+            const nextButton = document.getElementById('nextPage'); //다음 버튼
+
+            function displayImg(page) {
+                const startIndex = page * imagesPerpage;
+                const endIndex = startIndex + imagesPerpage;
+
+                const pageImages = images.slice(startIndex, endIndex);
+
+                imageContainer.innerHTML = ''; //이미지를 표시해줄 컨테이너
+
+                
+                pageImages.forEach(images => {
+                    const imgElement = document.createElement('img'); 
+                    imgElement.src = images;
+                    imgElement.classList.add('image'); 
+                    imageContainer.appendChild(imgElement);
+                })
+
+            }
+
+            function updateButtons() {
+                prevButton.disabled = currentPage ===0;
+                nextButton.disabled = (currentPage + 1) * imagesPerpage >= images.length; 
+            };
+
+            prevButton.addEventListener('click', () => {
+                if(currentPage > 0) { //현재 페이지 번호가 0보다 클 경우에만 실행 
+                    currentPage --; //현재 페이지 번호에서 하나를 감소시킴
+                    displayImg(currentPage); //새로운 현재 페이지에 해당하는 이미지를 표시 
+                    updateButtons(); //이전 버튼이 첫 번째 페이지에서 클릭하게 되면 더 이상 이전 버튼으로 가지 못하도록 이전버튼을 비활성화 
+                }
+            });
+
+            nextButton.addEventListener('click', () => {
+                if((currentPage + 1) *imagesPerpage < images.length){
+                //현재 페이지의 번호를 하나 증가시켜 다음 페이지로 이동하게 함
+                currentPage++;
+                displayImg(currentPage);
+                updateButtons();
+                }
+            })
+
+            displayImg(currentPage);
+            updateButtons();
+       </script>
+
+
+
+
+
+
             <h1>댓글쓰기</h1>
             <div class="comment">
                 <input id = "commentInput" placeholder="댓글작성">
