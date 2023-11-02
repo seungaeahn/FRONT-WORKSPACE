@@ -1,0 +1,150 @@
+*{
+    box-sizing: border-box;
+}
+header {
+    
+    background-color: #fec8c9;
+    padding: 40px;
+    text-align: center;
+    font-size: 15px;
+    color: #3e4149;
+    font-family: 'Cafe24ClassicType-Regular';
+}
+#topMenu {            
+    height: 30px; 
+    width: 850px;
+}
+#topMenu ul li {                       
+    list-style: none;
+    color: #3e4149;              
+    float: left;                
+    line-height: 60px;          
+    vertical-align: middle;
+    text-align: center;  
+    display: inline-block;    
+    
+}
+#topMenu .menuLink {                               
+    text-decoration:none;                      
+    color: #3e4149;                         
+    display:block;                            
+    width: 150px;                              
+    font-size: 12px;                           
+    font-weight: bold;                   
+    font-family: 'Cafe24ClassicType-Regular';
+}
+#topMenu .menuLink:hover {            
+    color: #fd999a;                      
+}
+
+
+
+article {
+    float: left;
+    padding: 0%;
+    width: 100%;
+    background-color: rgb(250, 226, 223);
+    height: 1000px;
+    text-align: center;
+    color: #3e4149;
+
+}
+
+.img-container {
+    /*이미지 가로로 나열하기*/
+    display: flex; 
+    /*가로로 공간이 부족할 경우 다음줄로 넘김*/
+    flex-wrap: wrap; 
+    /*가로방향으로 중앙 정렬 이미지들이 수평 가운데 정렬*/
+    justify-content: center;
+}
+.image {
+    width: 200px;
+    height: 320px;
+    margin: 10px;
+}
+
+.photoButton {
+    width: 50px;
+    height: 100px;
+}
+
+
+
+
+
+section::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+footer {
+    background: linear-gradient( #ffdde1, #ee9ca7) ;/*시작할 색상 정하기*/
+    /*background-color: rgb(255, 158, 171);*/
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+@media (max-width:600px){
+    nav, article{
+        width: 100px;
+        height: auto;
+    }
+}
+#prevPage{
+    color: rgb(255, 255, 255);
+    background-color: #e85a71;
+}
+.main_image {
+    position: relative;
+}
+.main_image_text {
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    transform: translate( -50%, -50% );
+    color: rgb(255, 255, 255);
+    font-family: 'ONE-Mobile-POP';
+    font-size: 30px;
+ 
+}
+@font-face {
+font-family: 'Orbit-Regular';
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/Orbit-Regular.woff2') format('woff2');
+font-weight: normal;
+font-style: normal;
+}
+@font-face {
+    font-family: 'Cafe24ClassicType-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Cafe24ClassicType-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+body {
+    font-family: 'Pretendard-Regular';
+
+}
+audio {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    border: 2px solid #f8d0df;
+    border-radius: 8px;
+    background-color: #f8d0d0;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+audio::-webkit-media-controls-panel {
+    background-color: #f8d0d0;
+    border-radius: 8px;
+}
+
+
+.blogPostList {
+    display: none;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>타이머 역 카운트다운</title>
+    </head>
+    <body>
+        <div id="msg"></div>        
+        <script>
+            // 5초 후에 메세지 보이게 하는 함수입니다
+            function displayMsg(){
+                var msgDiv = document.getElementById('msg');
+                msgDiv.innerHTML = '안녕하세요';
+            }
+
+            // setTimeout: JS안에 내장되어있는 함수 타이머 함수 중 하나
+            // 일정시간이 지나면 지정된 함수를 실행하는 역할을 함
+            
+            /*
+            setTimeout(callback, delay);
+            callback : 실행하고자 하는 함수나 코드블록을 지정해서 불러온 후 실행
+
+            delay: 함수를 실행하기 전까지 기다려야 하는 시간을 지정
+            
+            */
+            setTimeout(displayMsg, 5000);
+
+            //초기 숫자 설정
+            //만약에 시작 숫자를 5로 설정하고 싶으면 5로 설정
+            var startCount = 5;
+            function countDown() {
+                var countDown = document.getElemnetById("count");
+            }
+            //현재 숫자를 표시 
+            countDown.innerHTML =count;
+
+            //현재 숫자를 1로 감소
+            startCount--;
+            //0이상일 경우
+            if(startCount >= 0) {
+                setTimeout(countDown, 1000); //1000 = 1초
+            }
+            countDown();
+           
+
+        </script>
+    </body>
+</html>

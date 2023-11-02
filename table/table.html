@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>게시물</title>
+        <style>
+            table {
+                /*너비를 100% 확장하게 설정*/
+                width: 100%; 
+                /*border-collapse : 표의 셀 경계를 병합하고 경계선을 단일 선으로 만듦*/
+                border-collapse: collapse;
+
+            }
+            th, td {
+                border: 1px solid #ccc;
+                padding: 10px;
+                text-align: center; /*글자정렬*/
+            }
+            th {
+                background-color: aquamarine;
+            }
+            td {
+                background-color: rgb(255, 235, 211);
+            }
+            /*css는 태그 이름이나 class명 id 명을 중복으로 사용해도 가능
+            단 내용값이 겹치지 않는 한!*/
+        </style>
+    </head>
+    <body>
+        <!--
+            table 태그 : 표의 시작을 나타내는 태그
+            tr 태그 : 표의 행(row)을 정의하는 태그
+            th 태그 : 표의 머리글을 정의하는 태그
+                각 열의 제목을 부여
+                표의 머리글은 붉은 텍스트로 표시
+            td 태그 : 표의 데이터를 정의하는 태그
+                일반 텍스트로 표시
+            tbody 태그 : 표 내용을 그룹화해서 추후 js를 이용해서 내용을 추가하거나 변경할 때 (유)동적으로 사용할 수 있음
+             
+        
+        -->
+        <table>
+            <tr>
+                <th>제목</th>
+                <th>글쓴이</th>
+
+            </tr>
+            <tr>
+                <td>즐거운 점심시간</td>
+                <td>점심에 퇴근하는 자</td>
+            </tr>
+            <tr>
+                <td>ㅇㅇㅇㅇㅇㅇㅇㅇ</td>
+            </tr>
+        </table>
+    </body>
+</html>

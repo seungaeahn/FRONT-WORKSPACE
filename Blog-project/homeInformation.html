@@ -6,58 +6,48 @@
         <link rel="stylesheet" href="css/blog.css">
     </head>
     <body>
-        <h2>승애의 블로그</h2>
-        <p>안녕하세요. 여기는 승애의 블로그입니다.</p>
         <header>
-            <div class="main_image">
-                <img src="루피.jpg" >
-                <h1 class="main_image_text" >승애의 블로그</h1>
-          
-          </div>
-        </header>
-        <section>
+        <h2>Keep Finding Your Joy</h2>
+        <nav id="topMenu">
+            <ul>
+                    <li><a class="menuLink" href="#">About me!</a></li>
+                    <li><a class="menuLink" href="#">Travelog</a></li>
+                    <li><a class="menuLink" href="#">My fav things</a></li>
+                    <li><a class="menuLink" href="#">Community</a></li>
+                    <li><a class="menuLink" href="#">etc...</a></li>
+            </ul>
+    </nav>
+    </header>
+     <section>
+        <button class="photoButton">
+            <img src="img/프랑스.png" alt="프랑스" onclick="" >
+          </button>
+     </section>   
+    <section>
            
-            <nav>
-                <form id="loginForm">
-                    <label for = "userName">ID : </label>
-                    <input type="text" id="userName" required>
-                    <br>
-                    <label for="password">Password : </label>
-                    <input type="password" id="password" name="password" required>
-                    <br><br>
-                    <center><button type="submit" id="loginButton" disabled>로그인</button></center><br><br>
-                </form>   
-                <audio id="myAudio" controls autoplay>
-                    <source src="NewJeans - Super Shy.mp3" type="audio/mpeg">
-                </audio><br><br>
-                <ul>
-                    <li>일상글..끄적끄적</li><br>
-                    <li>먹방일기with맛집추천!</li><br>
-                    <li><a href= "travelblog.html">여행기록</a></li><br>
-                    <li>방명록</li>
-                </ul>
-            </nav>
+           
         
         <article>
-            <h1>블로그에 놀러오신 걸 환영합니다 ❤*.(๓´͈ ˘ `͈๓).*❤</h1>
-            <p>저는 취준생 백수이구요...<br>
-            누워있는게 최고라고 생각하는 infp입니당..</p><br>
+            <h4>❤Paris❤</h4>
+            
             <div id="pagination">
-                <button id="prevPage">이전</button>
+                <button id="prevPage">before</button>
                 <div class="img-container">
                     <!--이미지를 추가하는 공간-->
                 </div>
-                <button id="nextPage">다음</button>
+                <button id="nextPage">next</button>
             </div>
             <script>
                 const images = [
-                    './img/뽀로로.jpg',
-                    './img/포비.jpg',
-                    './img/크롱.jpg',
-                    './img/해리.jpg',
-                    './img/에디.jpg',
+                    './img/파리7.jpg',
+                    './img/파리6.jpg',
+                    './img/파리5.jpg',
+                    './img/파리4.jpg',
+                    './img/파리3.jpg',
+                    './img/파리2.jpg',
+                    './img/파리1.jpg',
                 ];
-            const imagesPerpage = 2; //한페이지에 표시될 이미지 수 
+            const imagesPerpage = 3; //한페이지에 표시될 이미지 수 
             let currentPage = 0; //현재 페이지를 나타내는 변수 
                                  //초기값은 0으로 설정하여 첫 번째 페이지를 표시함
             const imageContainer = document.querySelector('.img-container');
@@ -107,6 +97,11 @@
             displayImg(currentPage);
             updateButtons();
        </script>
+        </article>
+    </section>
+    <section>
+
+    </section>
 
 
 
@@ -181,7 +176,7 @@
 
         </script>
             </div>
-        </article>
+        
         
         <script>
             function addComment(){
@@ -204,7 +199,7 @@
             }
         </script>
         
-    </section>
+    
     <footer>
         <p><a href= "">인스타그램</a> |<a href= "https://seungaeahn.tistory.com/">티스토리</a>| <a href= "">페이스북</a></p>
        
