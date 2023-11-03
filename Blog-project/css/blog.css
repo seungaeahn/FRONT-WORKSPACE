@@ -36,6 +36,39 @@ header {
 #topMenu .menuLink:hover {            
     color: #fd999a;                      
 }
+#midMeni .img-button:hover {
+    color: #fd6062;  
+}
+#gbook {
+    background-color: rgb(250, 226, 223);
+    padding: 100px;
+    height: 400px; 
+    text-align: center;
+    font-size: 15px;
+    color: #3e4149;
+    font-family: 'Cafe24ClassicType-Regular';
+}
+#music {
+    background-color: rgb(250, 226, 223);
+    padding: 40px;
+    height: 200px; 
+    text-align: center;
+    font-size: 15px;
+    color: #3e4149;
+    font-family: 'Cafe24ClassicType-Regular';
+}
+#imgSlider {
+    text-align: left;
+}
+#imgSlider img {
+    width: 300px;
+    height: 200px;
+    position: absolute;
+}
+#myAudio {
+    text-align: right;
+}
+
 
 
 
@@ -64,10 +97,17 @@ article {
     margin: 10px;
 }
 
-.photoButton {
-    width: 50px;
-    height: 100px;
-}
+
+input.img-button {
+    background-color: #ee9ca7;
+    background-image: url("../img/프랑스.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: none;
+    width: 200px;
+    height: 320px;
+    margin: 10px;
+  }
 
 
 
@@ -91,7 +131,7 @@ footer {
         height: auto;
     }
 }
-#prevPage{
+#prevPage, #nextPage{
     color: rgb(255, 255, 255);
     background-color: #e85a71;
 }

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery 사용하기</title>
+        <script src="./js/jquery-3.7.1.js"></script>
+        <script>
+            $(function() {
+                //$(선택자).동작함수();
+                $("p").on("click", function() {
+                    $("p").css("color", "red")
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <p>마우스로 글씨를 클릭해보세요.</p>
+    </body>
+</html>

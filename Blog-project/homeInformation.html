@@ -4,6 +4,7 @@
         <title>승애의 블로그</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="css/blog.css">
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     </head>
     <body>
         <header>
@@ -18,15 +19,86 @@
             </ul>
     </nav>
     </header>
-     <section>
-        <button class="photoButton">
-            <img src="img/프랑스.png" alt="프랑스" onclick="" >
-          </button>
-     </section>   
-    <section>
-           
-           
+    <section id="music">
+        <div id="imgSlider">
+            <img src="./img/1.jpg">
+            <img src="./img/2.jpg">
+            <img src="./img/3.jpg">
+            <img src="./img/4.jpg">
+            <img src="./img/5.jpg">
+            <img src="./img/6.jpg">
+            <img src="./img/7.jpg">
+        </div>
+        <script>
+            $(function() {
+                let currentNumber = 0;
+                let images = $("img");
+                images.hide(); 
+                images.eq(currentNumber).show(); //첫번째 이미지가 보임 
+
+                //다음 이미지 보여주는 함수 생성 
+                function nextImage() {
+                   
+                    images.eq(currentNumber).fadeOut(1000);
+                   
+                    currentNumber = (currentNumber + 1) % images.length;
+                    
+                    images.eq(currentNumber).fadeIn(1000);
+
+
+
+                }
+                setInterval(nextImage, 2000);
+            })
+        </script>
         
+        
+    </section>
+    <section id="myAudio">
+        <audio id="myAudio" controls autoplay>
+            <source src="NewJeans - Super Shy.mp3" type="audio/mpeg">
+        </audio>
+
+        <script>
+            //자동 재생을 위한 코드
+            const audio = document.getElementById('myAudio');
+            audio.play();
+        </script>
+    </section>
+
+
+    <section id="gbook">
+        <h4>Guest Book ❤</h4>
+        <div class="comment">
+            <input id = "commentInput" placeholder="write">
+            <button onclick="addComment()">upload</button>
+            <div id="comments">
+                <!--댓글이 표시될 장소-->
+            </div>
+        </div>
+    </section>
+    <script>
+        function addComment(){
+            const commentInput = document.getElementById("commentInput");
+            const commentText = commentInput.value;
+
+            if(commentText.trim() === "") {
+                alert("댓글을 작성해주세요.")
+                return;
+            }
+
+            const commentsBox = document.getElementById("comments");
+
+            const commentDIV = document.createElement("div");
+            commentDIV.className = "comment";
+            commentDIV.textContent = commentText;
+
+            commentsBox.appendChild(commentDIV);
+            commentInput.value="";
+        }
+    </script>
+      
+    <section id="parisP">
         <article>
             <h4>❤Paris❤</h4>
             
@@ -38,7 +110,7 @@
                 <button id="nextPage">next</button>
             </div>
             <script>
-                const images = [
+                const imag = [
                     './img/파리7.jpg',
                     './img/파리6.jpg',
                     './img/파리5.jpg',
@@ -58,14 +130,14 @@
                 const startIndex = page * imagesPerpage;
                 const endIndex = startIndex + imagesPerpage;
 
-                const pageImages = images.slice(startIndex, endIndex);
+                const pageImages = imag.slice(startIndex, endIndex);
 
                 imageContainer.innerHTML = ''; //이미지를 표시해줄 컨테이너
 
                 
-                pageImages.forEach(images => {
+                pageImages.forEach(imag => {
                     const imgElement = document.createElement('img'); 
-                    imgElement.src = images;
+                    imgElement.src = imag;
                     imgElement.classList.add('image'); 
                     imageContainer.appendChild(imgElement);
                 })
@@ -74,7 +146,7 @@
 
             function updateButtons() {
                 prevButton.disabled = currentPage ===0;
-                nextButton.disabled = (currentPage + 1) * imagesPerpage >= images.length; 
+                nextButton.disabled = (currentPage + 1) * imagesPerpage >= imag.length; 
             };
 
             prevButton.addEventListener('click', () => {
@@ -86,7 +158,7 @@
             });
 
             nextButton.addEventListener('click', () => {
-                if((currentPage + 1) *imagesPerpage < images.length){
+                if((currentPage + 1) *imagesPerpage < imag.length){
                 //현재 페이지의 번호를 하나 증가시켜 다음 페이지로 이동하게 함
                 currentPage++;
                 displayImg(currentPage);
@@ -98,106 +170,8 @@
             updateButtons();
        </script>
         </article>
-    </section>
-    <section>
+   
 
-    </section>
-
-
-
-
-
-
-            <h1>댓글쓰기</h1>
-            <div class="comment">
-                <input id = "commentInput" placeholder="댓글작성">
-                <button onclick="addComment()">작성완료</button>
-                <div id="comments">
-                    <!--댓글이 표시될 장소-->
-                </div><br><br>
-            <h1>게시글 쓰기</h1>
-            <button id="createPostButton">게시글 작성하기</button>
-            <ul id="blogPostList">
-            
-            <!-- 리스트 아이템 추가되는 자리-->
-        </ul>
-        <input type="file" id="fileInput" accept="image/*">
-        <button id="uploadButton">업로드</button>
-
-        <div id="imageContainer">
-            <!--이미지를 표시할 컨테이너-->
-            <img id="uploadImage" style="max-width: 200px;">
-        </div>
-
-        <script>
-            //파일을 업로드하는 버튼 클릭시 이벤트 처리
-            document.getElementById("uploadButton").addEventListener("click", function() {
-                var fileInput = document.getElementById("fileInput");
-                var uploadImage = document.getElementById("uploadImage");
-                var imageContainer = document.getElementById("imageContainer");
-
-
-                if(fileInput.files.length > 0) {
-                    
-                    var file = fileInput.files[0];
-                    
-                    var reader = new FileReader();
-                    
-                    reader.onload = function (e) {
-                        
-                        uploadImage.src = e.target.result; //업로드된 이미지를 표시
-                        imageContainer.style.display = "block"; //이미지를 보여줌
-                    };
-                    
-                    reader.readAsDataURL(file); //파일을 Data URL로 읽는 것 
-                }
-
-            })
-        </script>
-
-        <script>
-            const blogPostList = document.getElementById("blogPostList");
-                       
-            const savedPosts = JSON.parse(localStorage.getItem("blogPosts")) || [];
-
-            savedPosts.forEach(post => {
-                const listItem = document.createElement("li");
-                listItem.textContent = post.content;
-                blogPostList.appendChild(listItem);
-            });
-
-            //게시글 작성 페이지로 이동하는 클릭 버튼 
-            document.getElementById("createPostButton").addEventListener("click", function(){
-                window.location.href = "blog_post.html";
-            });
-
-            
-
-
-        </script>
-            </div>
-        
-        
-        <script>
-            function addComment(){
-                const commentInput = document.getElementById("commentInput");
-                const commentText = commentInput.value;
-    
-                if(commentText.trim() === "") {
-                    alert("댓글을 작성해주세요.")
-                    return;
-                }
-    
-                const commentsBox = document.getElementById("comments");
-    
-                const commentDIV = document.createElement("div");
-                commentDIV.className = "comment";
-                commentDIV.textContent = commentText;
-    
-                commentsBox.appendChild(commentDIV);
-                commentInput.value="";
-            }
-        </script>
         
     
     <footer>

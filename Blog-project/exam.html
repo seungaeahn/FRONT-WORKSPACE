@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 페이지네이션</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="image-container">
+        <img id="image" src="1.jpg" alt="Image 1">
+    </div>
+    <div class="pagination">
+        <button id="showPaginationButton" onclick="showPagination()">페이지네이션 보기</button>
+    </div>
+    <div id="paginationButtons" class="hidden">
+        <button id="prevButton" onclick="previousImage()">이전</button>
+        <button id="nextButton" onclick="nextImage()">다음</button>
+        <div id="prevPagination" class="pagination hidden">
+            <button onclick="previousImage()">이전</button>
+        </div>
+        <div id="nextPagination" class="pagination hidden">
+            <button onclick="nextImage()">다음</button>
+        </div>
+    </div>
+    <script src="blog.js"></script>
+</body>
+</html>

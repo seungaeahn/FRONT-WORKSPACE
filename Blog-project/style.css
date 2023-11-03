@@ -1,0 +1,26 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.image-container {
+    margin: 20px;
+}
+
+img {
+    max-width: 100%;
+}
+
+.pagination {
+    margin: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+/* 숨김 상태로 시작하도록 추가 */
+.hidden {
+    display: none;
+}
